@@ -11,8 +11,8 @@
 		</commentGenerator>
 		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/taotao" userId="root"
-			password="root">
+			connectionURL="jdbc:mysql://192.168.3.14:3306/purchaser" userId="wuzhijian"
+			password="wuzhijian">
 		</jdbcConnection>
 		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
 			NUMERIC 类型解析为java.math.BigDecimal -->
@@ -21,7 +21,7 @@
 		</javaTypeResolver>
 
 		<!-- targetProject:生成PO类的位置 -->
-		<javaModelGenerator targetPackage="com.taotao.pojo"
+		<javaModelGenerator targetPackage="com.pojo"
 			targetProject=".\src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
@@ -29,30 +29,114 @@
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
         <!-- targetProject:mapper映射文件生成的位置 -->
-		<sqlMapGenerator targetPackage="com.taotao.mapper" 
+		<sqlMapGenerator targetPackage="com.mapper" 
 			targetProject=".\src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 		<!-- targetPackage：mapper接口生成的位置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.taotao.mapper" 
+			targetPackage="com.dao" 
 			targetProject=".\src">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 		<!-- 指定数据库表 -->
-		<table schema="" tableName="tb_content"></table>
-		<table schema="" tableName="tb_content_category"></table>
-		<table schema="" tableName="tb_item"></table>
-		<table schema="" tableName="tb_item_cat"></table>
-		<table schema="" tableName="tb_item_desc"></table>
-		<table schema="" tableName="tb_item_param"></table>
-		<table schema="" tableName="tb_item_param_item"></table>
-		<table schema="" tableName="tb_order"></table>
-		<table schema="" tableName="tb_order_item"></table>
-		<table schema="" tableName="tb_order_shipping"></table>
-		<table schema="" tableName="tb_user"></table>
-
+		<table domainObjectName="User" tableName="tb_user" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="Member" tableName="tb_member" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="MemberPrice" tableName="tb_member_price" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="Admirer" tableName="tb_admirer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="Experience" tableName="tb_experience" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="Active" tableName="tb_active" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="InvitationCode" tableName="tb_invitation_code" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="Sign" tableName="tb_sign" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="Supplier" tableName="tb_supplier" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="Content" tableName="tb_content" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="Order" tableName="tb_order" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
+		<table domainObjectName="Parameter" tableName="tb_parameter" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+			<!-- 需要忽略的字段 -->
+			<ignoreColumn column="backup1" delimitedColumnName=""/>
+			<ignoreColumn column="backup2" delimitedColumnName=""/>
+			<ignoreColumn column="backup3" delimitedColumnName=""/>
+			<ignoreColumn column="backup4" delimitedColumnName=""/>
+			<ignoreColumn column="backup5" delimitedColumnName=""/>
+		</table>
 	</context>
 </generatorConfiguration>
