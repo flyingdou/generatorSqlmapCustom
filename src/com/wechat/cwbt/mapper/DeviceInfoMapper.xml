@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wechat.cwbt.dao.DeviceInfoMapper">
+  <resultMap id="BaseResultMap" type="com.wechat.cwbt.pojo.DeviceInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="specification_model" jdbcType="VARCHAR" property="specificationModel" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="primary_code" jdbcType="VARCHAR" property="primaryCode" />
+    <result column="manufacturer" jdbcType="VARCHAR" property="manufacturer" />
+    <result column="production_date" jdbcType="TIMESTAMP" property="productionDate" />
+    <result column="use_date" jdbcType="TIMESTAMP" property="useDate" />
+    <result column="device_worth" jdbcType="DOUBLE" property="deviceWorth" />
+    <result column="drawing_number" jdbcType="VARCHAR" property="drawingNumber" />
+    <result column="design_unit" jdbcType="VARCHAR" property="designUnit" />
+    <result column="use_position" jdbcType="VARCHAR" property="usePosition" />
+    <result column="main_technical_parameters" jdbcType="VARCHAR" property="mainTechnicalParameters" />
+    <result column="professional_attribute" jdbcType="INTEGER" property="professionalAttribute" />
+    <result column="special_attribute" jdbcType="INTEGER" property="specialAttribute" />
+    <result column="belong_ship" jdbcType="VARCHAR" property="belongShip" />
+    <result column="is_del" jdbcType="INTEGER" property="isDel" />
+    <result column="auto_date" jdbcType="TIMESTAMP" property="autoDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, specification_model, code, primary_code, manufacturer, production_date, 
+    use_date, device_worth, drawing_number, design_unit, use_position, main_technical_parameters, 
+    professional_attribute, special_attribute, belong_ship, is_del, auto_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from device_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from device_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wechat.cwbt.pojo.DeviceInfo">
+    insert into device_info (id, name, specification_model, 
+      code, primary_code, manufacturer, 
+      production_date, use_date, device_worth, 
+      drawing_number, design_unit, use_position, 
+      main_technical_parameters, professional_attribute, 
+      special_attribute, belong_ship, is_del, 
+      auto_date)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{specificationModel,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{primaryCode,jdbcType=VARCHAR}, #{manufacturer,jdbcType=VARCHAR}, 
+      #{productionDate,jdbcType=TIMESTAMP}, #{useDate,jdbcType=TIMESTAMP}, #{deviceWorth,jdbcType=DOUBLE}, 
+      #{drawingNumber,jdbcType=VARCHAR}, #{designUnit,jdbcType=VARCHAR}, #{usePosition,jdbcType=VARCHAR}, 
+      #{mainTechnicalParameters,jdbcType=VARCHAR}, #{professionalAttribute,jdbcType=INTEGER}, 
+      #{specialAttribute,jdbcType=INTEGER}, #{belongShip,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}, 
+      #{autoDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wechat.cwbt.pojo.DeviceInfo">
+    insert into device_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="specificationModel != null">
+        specification_model,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="primaryCode != null">
+        primary_code,
+      </if>
+      <if test="manufacturer != null">
+        manufacturer,
+      </if>
+      <if test="productionDate != null">
+        production_date,
+      </if>
+      <if test="useDate != null">
+        use_date,
+      </if>
+      <if test="deviceWorth != null">
+        device_worth,
+      </if>
+      <if test="drawingNumber != null">
+        drawing_number,
+      </if>
+      <if test="designUnit != null">
+        design_unit,
+      </if>
+      <if test="usePosition != null">
+        use_position,
+      </if>
+      <if test="mainTechnicalParameters != null">
+        main_technical_parameters,
+      </if>
+      <if test="professionalAttribute != null">
+        professional_attribute,
+      </if>
+      <if test="specialAttribute != null">
+        special_attribute,
+      </if>
+      <if test="belongShip != null">
+        belong_ship,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="autoDate != null">
+        auto_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="specificationModel != null">
+        #{specificationModel,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryCode != null">
+        #{primaryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="productionDate != null">
+        #{productionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useDate != null">
+        #{useDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceWorth != null">
+        #{deviceWorth,jdbcType=DOUBLE},
+      </if>
+      <if test="drawingNumber != null">
+        #{drawingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="designUnit != null">
+        #{designUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="usePosition != null">
+        #{usePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="mainTechnicalParameters != null">
+        #{mainTechnicalParameters,jdbcType=VARCHAR},
+      </if>
+      <if test="professionalAttribute != null">
+        #{professionalAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="specialAttribute != null">
+        #{specialAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="belongShip != null">
+        #{belongShip,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="autoDate != null">
+        #{autoDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wechat.cwbt.pojo.DeviceInfo">
+    update device_info
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="specificationModel != null">
+        specification_model = #{specificationModel,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryCode != null">
+        primary_code = #{primaryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="productionDate != null">
+        production_date = #{productionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useDate != null">
+        use_date = #{useDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceWorth != null">
+        device_worth = #{deviceWorth,jdbcType=DOUBLE},
+      </if>
+      <if test="drawingNumber != null">
+        drawing_number = #{drawingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="designUnit != null">
+        design_unit = #{designUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="usePosition != null">
+        use_position = #{usePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="mainTechnicalParameters != null">
+        main_technical_parameters = #{mainTechnicalParameters,jdbcType=VARCHAR},
+      </if>
+      <if test="professionalAttribute != null">
+        professional_attribute = #{professionalAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="specialAttribute != null">
+        special_attribute = #{specialAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="belongShip != null">
+        belong_ship = #{belongShip,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="autoDate != null">
+        auto_date = #{autoDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wechat.cwbt.pojo.DeviceInfo">
+    update device_info
+    set name = #{name,jdbcType=VARCHAR},
+      specification_model = #{specificationModel,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      primary_code = #{primaryCode,jdbcType=VARCHAR},
+      manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      production_date = #{productionDate,jdbcType=TIMESTAMP},
+      use_date = #{useDate,jdbcType=TIMESTAMP},
+      device_worth = #{deviceWorth,jdbcType=DOUBLE},
+      drawing_number = #{drawingNumber,jdbcType=VARCHAR},
+      design_unit = #{designUnit,jdbcType=VARCHAR},
+      use_position = #{usePosition,jdbcType=VARCHAR},
+      main_technical_parameters = #{mainTechnicalParameters,jdbcType=VARCHAR},
+      professional_attribute = #{professionalAttribute,jdbcType=INTEGER},
+      special_attribute = #{specialAttribute,jdbcType=INTEGER},
+      belong_ship = #{belongShip,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      auto_date = #{autoDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wechat.cwbt.pojo.DeviceInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="specification_model" jdbcType="VARCHAR" property="specificationModel" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="primary_code" jdbcType="VARCHAR" property="primaryCode" />
+    <result column="manufacturer" jdbcType="VARCHAR" property="manufacturer" />
+    <result column="production_date" jdbcType="TIMESTAMP" property="productionDate" />
+    <result column="use_date" jdbcType="TIMESTAMP" property="useDate" />
+    <result column="device_worth" jdbcType="DOUBLE" property="deviceWorth" />
+    <result column="drawing_number" jdbcType="VARCHAR" property="drawingNumber" />
+    <result column="design_unit" jdbcType="VARCHAR" property="designUnit" />
+    <result column="use_position" jdbcType="VARCHAR" property="usePosition" />
+    <result column="main_technical_parameters" jdbcType="VARCHAR" property="mainTechnicalParameters" />
+    <result column="professional_attribute" jdbcType="INTEGER" property="professionalAttribute" />
+    <result column="special_attribute" jdbcType="INTEGER" property="specialAttribute" />
+    <result column="belong_ship" jdbcType="VARCHAR" property="belongShip" />
+    <result column="is_del" jdbcType="INTEGER" property="isDel" />
+    <result column="auto_date" jdbcType="TIMESTAMP" property="autoDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, specification_model, code, primary_code, manufacturer, production_date, 
+    use_date, device_worth, drawing_number, design_unit, use_position, main_technical_parameters, 
+    professional_attribute, special_attribute, belong_ship, is_del, auto_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from device_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from device_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wechat.cwbt.pojo.DeviceInfo">
+    insert into device_info (id, name, specification_model, 
+      code, primary_code, manufacturer, 
+      production_date, use_date, device_worth, 
+      drawing_number, design_unit, use_position, 
+      main_technical_parameters, professional_attribute, 
+      special_attribute, belong_ship, is_del, 
+      auto_date)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{specificationModel,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{primaryCode,jdbcType=VARCHAR}, #{manufacturer,jdbcType=VARCHAR}, 
+      #{productionDate,jdbcType=TIMESTAMP}, #{useDate,jdbcType=TIMESTAMP}, #{deviceWorth,jdbcType=DOUBLE}, 
+      #{drawingNumber,jdbcType=VARCHAR}, #{designUnit,jdbcType=VARCHAR}, #{usePosition,jdbcType=VARCHAR}, 
+      #{mainTechnicalParameters,jdbcType=VARCHAR}, #{professionalAttribute,jdbcType=INTEGER}, 
+      #{specialAttribute,jdbcType=INTEGER}, #{belongShip,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}, 
+      #{autoDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wechat.cwbt.pojo.DeviceInfo">
+    insert into device_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="specificationModel != null">
+        specification_model,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="primaryCode != null">
+        primary_code,
+      </if>
+      <if test="manufacturer != null">
+        manufacturer,
+      </if>
+      <if test="productionDate != null">
+        production_date,
+      </if>
+      <if test="useDate != null">
+        use_date,
+      </if>
+      <if test="deviceWorth != null">
+        device_worth,
+      </if>
+      <if test="drawingNumber != null">
+        drawing_number,
+      </if>
+      <if test="designUnit != null">
+        design_unit,
+      </if>
+      <if test="usePosition != null">
+        use_position,
+      </if>
+      <if test="mainTechnicalParameters != null">
+        main_technical_parameters,
+      </if>
+      <if test="professionalAttribute != null">
+        professional_attribute,
+      </if>
+      <if test="specialAttribute != null">
+        special_attribute,
+      </if>
+      <if test="belongShip != null">
+        belong_ship,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="autoDate != null">
+        auto_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="specificationModel != null">
+        #{specificationModel,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryCode != null">
+        #{primaryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="productionDate != null">
+        #{productionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useDate != null">
+        #{useDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceWorth != null">
+        #{deviceWorth,jdbcType=DOUBLE},
+      </if>
+      <if test="drawingNumber != null">
+        #{drawingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="designUnit != null">
+        #{designUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="usePosition != null">
+        #{usePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="mainTechnicalParameters != null">
+        #{mainTechnicalParameters,jdbcType=VARCHAR},
+      </if>
+      <if test="professionalAttribute != null">
+        #{professionalAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="specialAttribute != null">
+        #{specialAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="belongShip != null">
+        #{belongShip,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="autoDate != null">
+        #{autoDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wechat.cwbt.pojo.DeviceInfo">
+    update device_info
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="specificationModel != null">
+        specification_model = #{specificationModel,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="primaryCode != null">
+        primary_code = #{primaryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturer != null">
+        manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="productionDate != null">
+        production_date = #{productionDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="useDate != null">
+        use_date = #{useDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceWorth != null">
+        device_worth = #{deviceWorth,jdbcType=DOUBLE},
+      </if>
+      <if test="drawingNumber != null">
+        drawing_number = #{drawingNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="designUnit != null">
+        design_unit = #{designUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="usePosition != null">
+        use_position = #{usePosition,jdbcType=VARCHAR},
+      </if>
+      <if test="mainTechnicalParameters != null">
+        main_technical_parameters = #{mainTechnicalParameters,jdbcType=VARCHAR},
+      </if>
+      <if test="professionalAttribute != null">
+        professional_attribute = #{professionalAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="specialAttribute != null">
+        special_attribute = #{specialAttribute,jdbcType=INTEGER},
+      </if>
+      <if test="belongShip != null">
+        belong_ship = #{belongShip,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="autoDate != null">
+        auto_date = #{autoDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wechat.cwbt.pojo.DeviceInfo">
+    update device_info
+    set name = #{name,jdbcType=VARCHAR},
+      specification_model = #{specificationModel,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      primary_code = #{primaryCode,jdbcType=VARCHAR},
+      manufacturer = #{manufacturer,jdbcType=VARCHAR},
+      production_date = #{productionDate,jdbcType=TIMESTAMP},
+      use_date = #{useDate,jdbcType=TIMESTAMP},
+      device_worth = #{deviceWorth,jdbcType=DOUBLE},
+      drawing_number = #{drawingNumber,jdbcType=VARCHAR},
+      design_unit = #{designUnit,jdbcType=VARCHAR},
+      use_position = #{usePosition,jdbcType=VARCHAR},
+      main_technical_parameters = #{mainTechnicalParameters,jdbcType=VARCHAR},
+      professional_attribute = #{professionalAttribute,jdbcType=INTEGER},
+      special_attribute = #{specialAttribute,jdbcType=INTEGER},
+      belong_ship = #{belongShip,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      auto_date = #{autoDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
